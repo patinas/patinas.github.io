@@ -82,6 +82,23 @@
             font-weight: 600;
             color: #334155;
         }
+        .project-section h3 {
+             font-size: 1.5rem;
+             font-weight: 700;
+             color: #1e293b;
+             margin-bottom: 0.5rem;
+        }
+         .project-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        .project-section ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: 0.5rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -94,6 +111,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_about">About</a>
+                <a href="#projects" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_projects">Projects</a>
                 <a href="#infographics" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_infographics">Infographics</a>
                 <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_contact">Contact</a>
                 <div class="lang-switcher text-gray-500 font-medium">
@@ -112,6 +130,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#about" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_about_mobile">About</a>
+            <a href="#projects" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_projects_mobile">Projects</a>
             <a href="#infographics" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_infographics_mobile">Infographics</a>
             <a href="#contact" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_contact_mobile">Contact</a>
              <div class="lang-switcher text-gray-500 font-medium pt-2">
@@ -141,6 +160,60 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800" data-lang-key="projects_title">Featured Project</h2>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="project-section" data-lang-key="project_jobseekers_content">
+                        <h3>Jobseekers.dk - AI-Powered Job Matching Platform</h3>
+                        <p class="text-slate-600 mt-4">Jobseekers is an intelligent recruitment platform that connects job seekers with employers through AI-driven matching technology. The platform analyzes CVs, extracts skills, and uses OpenAI's GPT-3.5 to provide semantic matching between candidates and job opportunities.</p>
+                        
+                        <h4 class="mt-6">Key Features:</h4>
+                        <div class="grid sm:grid-cols-2 gap-6 text-slate-600">
+                            <div>
+                                <strong>For Job Seekers:</strong>
+                                <ul class="mt-2 space-y-1">
+                                    <li>Upload CVs for AI analysis and skill extraction</li>
+                                    <li>Get matched with relevant job postings</li>
+                                    <li>Receive career improvement tips</li>
+                                    <li>Direct messaging with employers</li>
+                                    <li>Free tier with one match, premium at $9.99/month</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong>For Employers:</strong>
+                                <ul class="mt-2 space-y-1">
+                                    <li>Post unlimited job listings</li>
+                                    <li>AI-powered candidate search</li>
+                                    <li>Direct messaging system</li>
+                                    <li>Detailed applicant reports</li>
+                                    <li>Premium plan at $299/month</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-6">Core Technology:</h4>
+                        <ul class="text-slate-600 mt-2 space-y-1">
+                           <li>Two-stage matching: algorithmic + AI semantic analysis</li>
+                           <li>Multi-language support (English, Danish, etc.)</li>
+                           <li>Real-time notifications and messaging</li>
+                           <li>GDPR-compliant with secure data handling</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/jobseekers-homepage.png" alt="Jobseekers Homepage" class="rounded-lg shadow-md w-full h-auto">
+                        <img src="images/jobseekers-login-page.png" alt="Jobseekers Login Page" class="rounded-lg shadow-md w-full h-auto">
+                        <img src="images/jobseekers-pricing-page.png" alt="Jobseekers Pricing Page" class="rounded-lg shadow-md w-full h-auto">
+                        <img src="images/jobseekers-register-page.png" alt="Jobseekers Register Page" class="rounded-lg shadow-md w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Infographics Section -->
         <section id="infographics" class="py-20 bg-slate-50 rounded-2xl">
             <div class="text-center mb-12">
@@ -148,7 +221,6 @@
                 <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-lang-key="infographics_subtitle">Transforming complex data into beautiful and understandable visual narratives.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-12">
-                <!-- Infographics will be dynamically added here -->
                 <div class="bg-white rounded-xl p-6 infographic-card magic-card">
                     <img src="images/1752649327018.jpg" alt="Infographic 1752649327018" class="w-full h-auto rounded-lg cursor-pointer infographic-thumbnail">
                     <button class="w-full mt-4 text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 px-4 rounded-lg magic-button social-post-generator" data-lang-key="infographics_ai_button">✨ Suggest Social Post</button>
@@ -246,11 +318,6 @@
     <footer class="bg-slate-800 text-white">
         <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
             <p>&copy; 2025 Andreas Patinas. All Rights Reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-blue-400">Twitter</a>
-                <a href="#" class="hover:text-blue-400">LinkedIn</a>
-                <a href="#" class="hover:text-blue-400">Dribbble</a>
-            </div>
         </div>
     </footer>
 
@@ -355,10 +422,12 @@
         const translations = {
             en: {
                 nav_about: "About",
+                nav_projects: "Projects",
                 nav_infographics: "Infographics",
                 nav_contact: "Contact",
                 nav_hire_me: "Hire Me",
                 nav_about_mobile: "About",
+                nav_projects_mobile: "Projects",
                 nav_infographics_mobile: "Infographics",
                 nav_contact_mobile: "Contact",
                 nav_hire_me_mobile: "Hire Me",
@@ -366,6 +435,18 @@
                 hero_subtitle: "I'm Andreas Patinas, a graphic designer specializing in creating compelling brand identities and data-driven infographics that captivate and communicate with clarity.",
                 hero_cta_work: "View My Work",
                 hero_cta_cv: "Show CV",
+                projects_title: "Featured Project",
+                project_jobseekers_content: `
+                    <h3>Jobseekers.dk - AI-Powered Job Matching Platform</h3>
+                    <p class="text-slate-600 mt-4">Jobseekers is an intelligent recruitment platform that connects job seekers with employers through AI-driven matching technology. The platform analyzes CVs, extracts skills, and uses OpenAI's GPT-3.5 to provide semantic matching between candidates and job opportunities.</p>
+                    <h4 class="mt-6">Key Features:</h4>
+                    <div class="grid sm:grid-cols-2 gap-6 text-slate-600">
+                        <div><strong>For Job Seekers:</strong><ul class="mt-2 space-y-1"><li>Upload CVs for AI analysis and skill extraction</li><li>Get matched with relevant job postings</li><li>Receive career improvement tips</li><li>Direct messaging with employers</li><li>Free tier with one match, premium at $9.99/month</li></ul></div>
+                        <div><strong>For Employers:</strong><ul class="mt-2 space-y-1"><li>Post unlimited job listings</li><li>AI-powered candidate search</li><li>Direct messaging system</li><li>Detailed applicant reports</li><li>Premium plan at $299/month</li></ul></div>
+                    </div>
+                    <h4 class="mt-6">Core Technology:</h4>
+                    <ul class="text-slate-600 mt-2 space-y-1"><li>Two-stage matching: algorithmic + AI semantic analysis</li><li>Multi-language support (English, Danish, etc.)</li><li>Real-time notifications and messaging</li><li>GDPR-compliant with secure data handling</li></ul>
+                `,
                 infographics_title: "Data Visualization & Infographics",
                 infographics_subtitle: "Transforming complex data into beautiful and understandable visual narratives.",
                 infographics_ai_button: "✨ Suggest Social Post",
@@ -386,10 +467,12 @@
             },
             da: {
                 nav_about: "Om Mig",
+                nav_projects: "Projekter",
                 nav_infographics: "Infografik",
                 nav_contact: "Kontakt",
                 nav_hire_me: "Ansæt Mig",
                 nav_about_mobile: "Om Mig",
+                nav_projects_mobile: "Projekter",
                 nav_infographics_mobile: "Infografik",
                 nav_contact_mobile: "Kontakt",
                 nav_hire_me_mobile: "Ansæt Mig",
@@ -397,6 +480,18 @@
                 hero_subtitle: "Jeg er Andreas Patinas, en grafisk designer med speciale i at skabe overbevisende brandidentiteter og datadrevne infografikker, der fængsler og kommunikerer med klarhed.",
                 hero_cta_work: "Se Mit Arbejde",
                 hero_cta_cv: "Vis CV",
+                projects_title: "Udvalgt Projekt",
+                 project_jobseekers_content: `
+                    <h3>Jobseekers.dk - AI-drevet jobmatchingsplatform</h3>
+                    <p class="text-slate-600 mt-4">Jobseekers er en intelligent rekrutteringsplatform, der forbinder jobsøgende med arbejdsgivere gennem AI-drevet matchingteknologi. Platformen analyserer CV'er, udtrækker færdigheder og bruger OpenAI's GPT-3.5 til at levere semantisk matching mellem kandidater og jobmuligheder.</p>
+                    <h4 class="mt-6">Nøglefunktioner:</h4>
+                    <div class="grid sm:grid-cols-2 gap-6 text-slate-600">
+                        <div><strong>For jobsøgende:</strong><ul class="mt-2 space-y-1"><li>Upload CV'er til AI-analyse og kompetenceudtræk</li><li>Bliv matchet med relevante jobopslag</li><li>Modtag tips til karriereforbedring</li><li>Direkte beskeder med arbejdsgivere</li><li>Gratis version med ét match, premium til $9.99/måned</li></ul></div>
+                        <div><strong>For arbejdsgivere:</strong><ul class="mt-2 space-y-1"><li>Opret ubegrænsede jobopslag</li><li>AI-drevet kandidatsøgning</li><li>Direkte besked-system</li><li>Detaljerede ansøgerrapporter</li><li>Premium-plan til $299/måned</li></ul></div>
+                    </div>
+                    <h4 class="mt-6">Kerneteknologi:</h4>
+                    <ul class="text-slate-600 mt-2 space-y-1"><li>To-trins matching: algoritmisk + AI semantisk analyse</li><li>Understøttelse af flere sprog (engelsk, dansk, etc.)</li><li>Notifikationer og beskeder i realtid</li><li>GDPR-overholdelse med sikker datahåndtering</li></ul>
+                `,
                 infographics_title: "Datavisualisering & Infografik",
                 infographics_subtitle: "Omdanner komplekse data til smukke og forståelige visuelle fortællinger.",
                 infographics_ai_button: "✨ Foreslå Socialt Opslag",
