@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas Patinas - Graphic Designer & Infographics Specialist</title>
+    <title>Andreas Patinas - Graphic Designer & Automation Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
         /* Custom styles for a minimal Magic UI feel */
         body {
@@ -69,35 +70,34 @@
             color: #2563eb;
             font-weight: 700;
         }
-        .cv-section h3 {
-            font-size: 1.25rem;
+        .cv-section h3, .project-section h3, .automation-section h3 {
+            font-size: 1.5rem;
             font-weight: 700;
             color: #1e293b;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
          .cv-section h4 {
             font-size: 1.1rem;
             font-weight: 600;
             color: #334155;
         }
-        .project-section h3 {
-             font-size: 1.5rem;
-             font-weight: 700;
-             color: #1e293b;
-             margin-bottom: 0.5rem;
-        }
-         .project-section h4 {
+         .project-section h4, .automation-section h4 {
             font-size: 1.1rem;
             font-weight: 600;
             color: #3b82f6;
             margin-bottom: 1rem;
         }
-        .project-section ul {
+        .project-section ul, .automation-section ul {
             list-style-type: disc;
             list-style-position: inside;
             margin-left: 0.5rem;
+        }
+        .mermaid {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -112,6 +112,7 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_about">About</a>
                 <a href="#projects" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_projects">Projects</a>
+                <a href="#automations" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_automations">Automations</a>
                 <a href="#infographics" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_infographics">Infographics</a>
                 <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600" data-lang-key="nav_contact">Contact</a>
                 <div class="lang-switcher text-gray-500 font-medium">
@@ -131,6 +132,7 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#about" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_about_mobile">About</a>
             <a href="#projects" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_projects_mobile">Projects</a>
+            <a href="#automations" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_automations_mobile">Automations</a>
             <a href="#infographics" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_infographics_mobile">Infographics</a>
             <a href="#contact" class="block text-gray-600 hover:text-blue-600" data-lang-key="nav_contact_mobile">Contact</a>
              <div class="lang-switcher text-gray-500 font-medium pt-2">
@@ -213,9 +215,51 @@
             </div>
         </section>
 
+        <!-- Automations Section -->
+        <section id="automations" class="py-20 bg-slate-50 rounded-2xl">
+            <div class="text-center mb-12">
+               <h2 class="text-3xl md:text-4xl font-bold text-slate-800" data-lang-key="automations_title">Automation Showcase</h2>
+           </div>
+           <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-6xl mx-auto">
+               <div class="grid md:grid-cols-2 gap-12 items-center">
+                   <div class="automation-section" data-lang-key="automation_linkedin_content">
+                       <h3>Automated LinkedIn Content Publisher</h3>
+                       <p class="text-slate-600 mt-4">This automation creates and publishes content for a LinkedIn company page. It's designed to be a "set it and forget it" system for social media management.</p>
+                       
+                       <h4 class="mt-6">How It Works:</h4>
+                       <p class="text-slate-600 mt-2">This workflow, built in n8n, automates the entire content creation and posting process:</p>
+                       <ul class="text-slate-600 mt-2 space-y-1">
+                          <li><strong>Gets Topics:</strong> Every three days, the workflow automatically pulls a new post topic from a list in a Google Sheet.</li>
+                          <li><strong>Generates Content:</strong> It uses AI to write a post in Danish based on the selected topic.</li>
+                          <li><strong>Creates Visuals:</strong> Another AI model then generates a custom infographic to go with the text.</li>
+                          <li><strong>Posts to LinkedIn:</strong> The final text and infographic are automatically published to a specific LinkedIn organization page.</li>
+                          <li><strong>Updates Status:</strong> Finally, it updates the Google Sheet to mark the topic as "posted," so it won't be used again.</li>
+                       </ul>
+                   </div>
+                   <div>
+                       <pre class="mermaid">
+graph TD
+    A["Start: Every 3 Days"] --> B["Get Topic from Google Sheet"];
+    B --> C["Generate Post Text with AI"];
+    C --> D["Generate Infographic with AI"];
+    D --> E["Post Content to LinkedIn"];
+    E --> F["Update Google Sheet: Mark as 'Posted'"];
+    F --> G["End"];
+
+    classDef startEnd fill:#dbeafe,stroke:#3b82f6,stroke-width:2px;
+    classDef process fill:#e0f2fe,stroke:#0ea5e9,stroke-width:2px;
+
+    class A,G startEnd;
+    class B,C,D,E,F process;
+                       </pre>
+                   </div>
+               </div>
+           </div>
+       </section>
+
 
         <!-- Infographics Section -->
-        <section id="infographics" class="py-20 bg-slate-50 rounded-2xl">
+        <section id="infographics" class="py-20">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800" data-lang-key="infographics_title">Data Visualization & Infographics</h2>
                 <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-lang-key="infographics_subtitle">Transforming complex data into beautiful and understandable visual narratives.</p>
@@ -295,7 +339,7 @@
                             <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg magic-button hover:bg-blue-700" data-lang-key="contact_form_send">
                                 Send Message
                             </button>
-                            <button type="button" id="draft-idea-button" class="w-full sm:w-auto bg-slate-100 text-slate-700 px-10 py-4 rounded-full font-semibold text-lg magic-button hover:bg-slate-200" data-lang-key="contact_form_draft">
+                            <button type="button" id="draft-idea-button" class="w-full sm:w-auto bg-slate-100 text-slate-700 px-10 py-4 rounded-full font-semibold text-lg magic-button hover:bg-blue-200" data-lang-key="contact_form_draft">
                                 ✨ Help Draft Project Idea
                             </button>
                         </div>
@@ -417,17 +461,20 @@
 
 
     <script>
+        mermaid.initialize({ startOnLoad: true });
         // --- Language and Translation Setup ---
         let currentLang = 'en';
         const translations = {
             en: {
                 nav_about: "About",
                 nav_projects: "Projects",
+                nav_automations: "Automations",
                 nav_infographics: "Infographics",
                 nav_contact: "Contact",
                 nav_hire_me: "Hire Me",
                 nav_about_mobile: "About",
                 nav_projects_mobile: "Projects",
+                nav_automations_mobile: "Automations",
                 nav_infographics_mobile: "Infographics",
                 nav_contact_mobile: "Contact",
                 nav_hire_me_mobile: "Hire Me",
@@ -446,6 +493,20 @@
                     </div>
                     <h4 class="mt-6">Core Technology:</h4>
                     <ul class="text-slate-600 mt-2 space-y-1"><li>Two-stage matching: algorithmic + AI semantic analysis</li><li>Multi-language support (English, Danish, etc.)</li><li>Real-time notifications and messaging</li><li>GDPR-compliant with secure data handling</li></ul>
+                `,
+                automations_title: "Automation Showcase",
+                automation_linkedin_content: `
+                    <h3>Automated LinkedIn Content Publisher</h3>
+                    <p class="text-slate-600 mt-4">This automation creates and publishes content for a LinkedIn company page. It's designed to be a "set it and forget it" system for social media management.</p>
+                    <h4 class="mt-6">How It Works:</h4>
+                    <p class="text-slate-600 mt-2">This workflow, built in n8n, automates the entire content creation and posting process:</p>
+                    <ul class="text-slate-600 mt-2 space-y-1">
+                        <li><strong>Gets Topics:</strong> Every three days, the workflow automatically pulls a new post topic from a list in a Google Sheet.</li>
+                        <li><strong>Generates Content:</strong> It uses AI to write a post in Danish based on the selected topic.</li>
+                        <li><strong>Creates Visuals:</strong> Another AI model then generates a custom infographic to go with the text.</li>
+                        <li><strong>Posts to LinkedIn:</strong> The final text and infographic are automatically published to a specific LinkedIn organization page.</li>
+                        <li><strong>Updates Status:</strong> Finally, it updates the Google Sheet to mark the topic as "posted," so it won't be used again.</li>
+                    </ul>
                 `,
                 infographics_title: "Data Visualization & Infographics",
                 infographics_subtitle: "Transforming complex data into beautiful and understandable visual narratives.",
@@ -468,11 +529,13 @@
             da: {
                 nav_about: "Om Mig",
                 nav_projects: "Projekter",
+                nav_automations: "Automatiseringer",
                 nav_infographics: "Infografik",
                 nav_contact: "Kontakt",
                 nav_hire_me: "Ansæt Mig",
                 nav_about_mobile: "Om Mig",
                 nav_projects_mobile: "Projekter",
+                nav_automations_mobile: "Automatiseringer",
                 nav_infographics_mobile: "Infografik",
                 nav_contact_mobile: "Kontakt",
                 nav_hire_me_mobile: "Ansæt Mig",
@@ -491,6 +554,20 @@
                     </div>
                     <h4 class="mt-6">Kerneteknologi:</h4>
                     <ul class="text-slate-600 mt-2 space-y-1"><li>To-trins matching: algoritmisk + AI semantisk analyse</li><li>Understøttelse af flere sprog (engelsk, dansk, etc.)</li><li>Notifikationer og beskeder i realtid</li><li>GDPR-overholdelse med sikker datahåndtering</li></ul>
+                `,
+                automations_title: "Automatisering Showcase",
+                automation_linkedin_content: `
+                    <h3>Automatiseret LinkedIn Indholdsudgiver</h3>
+                    <p class="text-slate-600 mt-4">Denne automatisering opretter og udgiver indhold til en LinkedIn-virksomhedsside. Den er designet til at være et "sæt det og glem det"-system til administration af sociale medier.</p>
+                    <h4 class="mt-6">Sådan virker det:</h4>
+                    <p class="text-slate-600 mt-2">Dette workflow, bygget i n8n, automatiserer hele processen for oprettelse og udstationering af indhold:</p>
+                    <ul class="text-slate-600 mt-2 space-y-1">
+                        <li><strong>Henter Emner:</strong> Hver tredje dag henter workflowet automatisk et nyt opslagsemne fra en liste i et Google Sheet.</li>
+                        <li><strong>Genererer Indhold:</strong> Det bruger AI til at skrive et opslag på dansk baseret på det valgte emne.</li>
+                        <li><strong>Opretter Visuals:</strong> En anden AI-model genererer derefter en brugerdefineret infografik, der passer til teksten.</li>
+                        <li><strong>Poster på LinkedIn:</strong> Den endelige tekst og infografik offentliggøres automatisk på en bestemt LinkedIn-organisationsside.</li>
+                        <li><strong>Opdaterer Status:</strong> Til sidst opdaterer det Google Sheet for at markere emnet som "posted", så det ikke bliver brugt igen.</li>
+                    </ul>
                 `,
                 infographics_title: "Datavisualisering & Infografik",
                 infographics_subtitle: "Omdanner komplekse data til smukke og forståelige visuelle fortællinger.",
