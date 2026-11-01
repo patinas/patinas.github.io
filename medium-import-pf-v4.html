@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="The tools, workflow, costs and checks behind my Past Forward AI documentaries - and how to build the same setup with your own accounts.">
+  <meta name="theme-color" content="#08111f">
+  <title>How I make AI documentaries for Past Forward | Andreas Patinas</title>
+  <script>document.documentElement.classList.add('js');(function(){var t=localStorage.getItem('portfolio-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=t})()</script>
+  <style>
+:root{--ink:#f5f5f5;--muted:#999;--bg:#080808;--line:#242424;--accent:#00ff47;--accent-ink:#001607;--panel:#090909;--navbg:#080808f3;--btnface:#0b0b0b;--comment:#777;--max:1200px;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+html[data-theme="light"]{--ink:#16191e;--muted:#4d5762;--bg:#f5f5f2;--line:#d8dcd6;--accent:#009e2c;--accent-ink:#ffffff;--panel:#ffffff;--navbg:#f5f5f2f0;--btnface:#ffffff;--comment:#7c868f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:50px 50px;background-attachment:fixed;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,sans-serif;line-height:1.55;transition:background-color .3s,color .3s}a{color:inherit}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 64px));margin:auto}.nav{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:var(--navbg)}.nav .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}.brand{font:700 .95rem var(--mono);text-decoration:none;color:var(--accent)}.brand:before{content:"<"}.brand:after{content:" />"}.navlinks{display:flex;align-items:center;gap:34px}.navmenu{display:flex;align-items:center;gap:34px}.menubtn{display:none}.navlinks a,.lang,.theme,.menubtn{font:400 .82rem var(--mono);color:var(--muted);text-decoration:none}.navlinks a:hover{color:var(--accent)}.lang,.theme,.menubtn{border:1px solid var(--line);background:var(--btnface);padding:7px 10px;cursor:pointer}.theme{display:inline-flex;align-items:center;gap:7px}.theme .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}.eyebrow{font:600 .78rem var(--mono);color:var(--accent)}.eyebrow:before{content:"/* ";color:var(--comment)}.eyebrow:after{content:" */";color:var(--comment)}.foot{background:var(--bg);padding:28px 0;color:var(--muted);font:.78rem var(--mono);border-top:1px solid var(--line)}.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px}.foot-copy{display:block}
+article.post{padding:84px 0 96px}.post-head{max-width:860px;margin:0 auto 10px}.post-head h1{margin:22px 0 20px;font-size:clamp(2.3rem,5.6vw,4.2rem);line-height:1.04;letter-spacing:-.05em}.post-meta{color:var(--muted);font:400 .82rem var(--mono)}.post-body{max-width:760px;margin:56px auto 0}.post-body h2{margin:58px 0 16px;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.03em}.post-body h2:before{content:"// ";color:var(--accent);font:500 .5em var(--mono);vertical-align:middle}.post-body p{color:var(--muted);font-size:1.05rem;line-height:1.85;margin:0 0 20px}.post-body ul,.post-body ol{color:var(--muted);line-height:2;margin:0 0 20px}.post-body li::marker{color:var(--accent)}figure{margin:34px 0}figcaption{margin-top:16px;color:var(--muted);font:400 .8rem var(--mono);line-height:1.7}figcaption:before{content:"// ";color:var(--accent)}.back{display:inline-block;margin-top:52px;font:700 .83rem var(--mono);text-decoration:none;color:var(--ink)}.back:before{content:"// ";color:var(--accent)}
+.url{font:400 .8rem var(--mono);color:var(--accent);text-decoration:none;word-break:break-all}
+.filmthumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.filmthumbs img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:6px}
+.kb svg{display:block;width:100%;height:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.steps{display:flex;flex-direction:column}.step{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);background:var(--panel);border-radius:8px;margin-bottom:28px;position:relative}.step:last-child{margin-bottom:0}.step:not(:last-child):after{content:"";position:absolute;left:50%;bottom:-21px;transform:translateX(-50%);border:6px solid transparent;border-top:8px solid var(--accent)}.step-num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 .8rem var(--mono);display:flex;align-items:center;justify-content:center;margin-top:2px}.step-t{display:block;color:var(--ink);font-weight:600;font-size:.98rem;line-height:1.4}.step-d{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:26px 0;text-align:center}.stat+.stat{border-left:1px solid var(--line)}.stat-num{display:block;color:var(--accent);font-size:2.1rem;font-weight:800;line-height:1}.stat-lab{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
+@media(max-width:760px){body{background-size:32px 32px}.wrap{width:min(100% - 48px,var(--max))}.nav .wrap{height:72px}.navlinks{gap:12px}.brand{font-size:.8rem;white-space:nowrap}.menubtn{display:inline-flex;align-items:center}.navmenu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 24px 12px}.nav.open .navmenu{display:flex}.navmenu a{display:block;padding:13px 2px;border-bottom:1px solid var(--line)}.navmenu a:last-child{border-bottom:0}article.post{padding:72px 0 88px}.post-body{margin-top:44px}.post-body p{line-height:1.8}.stat-num{font-size:1.7rem}.filmthumbs{grid-template-columns:1fr}.foot{padding:34px 0}.foot .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:12px}}
+  </style>
+<meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+  <header class="nav"><div class="wrap"><a class="brand" href="index.html">Andreas Patinas</a><nav class="navlinks" aria-label="Primary"><div class="navmenu" id="navmenu"><a href="index.html#work">Work</a><a href="index.html#linux">Linux</a><a href="index.html#approach">Approach</a><a href="index.html#about">About</a><a href="blog.html">Blog</a><a href="index.html#contact">Contact</a></div><button class="theme" id="theme" aria-label="Toggle dark and light mode"><span class="dot" aria-hidden="true"></span><span id="theme-label">Light</span></button><button class="lang" id="lang" aria-label="Switch language">DA</button><button class="menubtn" id="menubtn" aria-expanded="false" aria-controls="navmenu">Menu</button></nav></div></header>
+  <main>
+    <article class="post"><div class="wrap">
+      <header class="post-head">
+        <div class="eyebrow">Field notes</div>
+        <h1>How I make AI documentaries for Past Forward</h1>
+        <div class="post-meta"><span>1 November 2026 · 5 min read · AI video, Remotion, YouTube</span></div>
+      </header>
+      <div class="post-body">
+        <h2><span>The channel</span></h2>
+
+        <p><span>Past Forward is my YouTube channel for short, fact-checked documentaries about the machinery of history. Four films are published: the history of AI, ancient Greek technology, conspiracies that turned out to be true, and the deep ocean. The films are made with AI tools, and every film says so in its description.</span></p>
+
+        <p><span>This post is the practical version: the tools, the workflow, what it costs, and how to build the same setup with your own accounts.</span></p>
+
+        <figure><img src="https://drpackman.xyz/images/blog/past-forward-history-of-ai.jpg" alt="Title card of the history of AI film" width="1280" height="720"><figcaption>Title card of the history of AI film. Generated still.</figcaption></figure>
+<figure><img src="https://drpackman.xyz/images/blog/past-forward-greek-technology.jpg" alt="Title card of the ancient Greek technology film" width="1280" height="720"><figcaption>Title card of the ancient Greek technology film. Generated still.</figcaption></figure>
+<figure><img src="https://drpackman.xyz/images/blog/past-forward-conspiracies.jpg" alt="Title card of the conspiracies film" width="1280" height="720"><figcaption>Title card of the conspiracies film. Generated still.</figcaption></figure>
+<figure><img src="https://drpackman.xyz/images/blog/past-forward-deep-ocean.jpg" alt="Title card of the deep ocean film" width="1280" height="720"><figcaption>Title card of the deep ocean film. Generated still.</figcaption></figure>
+
+
+        <h2><span>The tools</span></h2>
+<p>Research and scripting: done with my AI assistant, claim by claim from named primary sources.</p>
+<p>Narration: Chatterbox, an open-source text-to-speech model (MIT license), running on Kaggle&#x27;s free GPU quota. https://github.com/resemble-ai/chatterbox</p>
+<p>Scene images and thumbnails: still images generated with my paid Google AI Plus subscription. https://one.google.com/about/google-ai-plans/</p>
+<p>Assembly: Remotion, video as code in React, free for individuals, rendered with open-source ffmpeg. https://www.remotion.dev/ · https://ffmpeg.org/</p>
+<p>Narration checking: two independent transcription systems, Google&#x27;s Gemini in AI Studio and OpenAI&#x27;s Whisper run locally as faster-whisper. https://github.com/SYSTRAN/faster-whisper</p>
+<p>Music: Treblo AI for the Greek and conspiracy films. https://treblo.com/</p>
+<p>Archival material: historical photographs and documents, each one license-checked before use.</p>
+
+
+        <h2><span>The workflow</span></h2>
+
+        <ol>
+          <li><span>Topic and sources. The script is written with my AI assistant, claim by claim from named primary sources: official records, declassified documents, peer-reviewed journals, expedition pages, depending on the film. A written fact-check document maps every spoken claim to its source, and numbers are re-verified against current sources at production time.</span></li>
+          <li><span>Narration. The script is split into 18 to 24 chunks. Each chunk is generated separately with Chatterbox on a free Kaggle GPU, and every audio file&#x27;s duration is measured with ffprobe.</span></li>
+          <li><span>Scenes. Still images only. The Greek film mixes AI-generated scenes with credited archival photographs, like the Antikythera fragment photos. The conspiracy film uses declassified documents and archival photos. The deep-ocean film uses AI-generated stills only. Motion comes from Ken Burns pans and zooms on the stills plus code-driven cards, not from AI video clips.</span></li>
+          <li><span>Assembly in code. One build script takes the measured audio durations and computes every frame timing from them: the audio concat and the Remotion timeline are generated from the same numbers, which keeps picture and sound in step and reduces sync drift. ffmpeg renders the final file, and the export is still checked before upload. The Greek and conspiracy films are built exactly this way.</span></li>
+          <li><span>Quality checks. Described below.</span></li>
+          <li><span>Publish. Upload, thumbnail, and a description that carries the AI disclosure.</span></li>
+        </ol>
+
+        <figure>
+          <div class="kb">
+            <svg viewBox="0 0 720 280" aria-hidden="true">
+              <rect x="20" y="30" width="300" height="200" fill="none" stroke="var(--muted)" stroke-width="2"/>
+              <circle cx="90" cy="90" r="22" fill="none" stroke="var(--muted)" stroke-width="2.4"/>
+              <polyline points="40,210 120,140 180,190 240,120 310,200" fill="none" stroke="var(--muted)" stroke-width="2.4" stroke-linejoin="round"/>
+              <rect x="95" y="95" width="150" height="100" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-dasharray="7 6"/>
+              <line x1="335" y1="130" x2="385" y2="130" stroke="var(--accent)" stroke-width="2.6"/>
+              <polyline points="377,121 388,130 377,139" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="400" y="30" width="300" height="200" fill="none" stroke="var(--muted)" stroke-width="2"/>
+              <circle cx="470" cy="80" r="34" fill="none" stroke="var(--muted)" stroke-width="2.4"/>
+              <polyline points="410,230 500,140 570,205 640,110 700,190" fill="none" stroke="var(--muted)" stroke-width="2.4" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <figcaption>One still, two windows. The film moves between windows like these instead of generating video.</figcaption>
+        </figure>
+
+        <h2><span>The checks, as they run today</span></h2>
+
+        <p><span>These checks grew over the first films, so this describes the current workflow, not what every published film went through.</span></p>
+
+        <p><span>Narration accuracy. In the current setup, Whisper transcribes every chunk and Gemini transcribes the full narration track as an independent second check against the script. In the Greek film the Gemini pass ran where quota allowed; in the newest film the full track was checked this way. Where a transcription disagrees with the script, the line gets another look; real defects are fixed with a phonetic respelling and a re-generation of that chunk. In the Greek film this caught five real defects, including &quot;127 mirrors&quot; read as &quot;107&quot;.</span></p>
+
+        <p><span>Sound. The final mix is measured with ffmpeg&#x27;s loudnorm (integrated LUFS, true peak, loudness range), and RMS levels are compared between narration and music-only windows to check that the music ducking works. The same loudness settings are used across films so the channel sounds consistent.</span></p>
+
+        <p><span>Picture. Frames are sampled from the final render for a luminance check and a visual inspection, and the finished file goes through a whole-film review in Gemini that covers picture and sound together. After upload, the uploaded audio is compared against the master.</span></p>
+
+        <figure>
+          <div class="stats">
+            <div class="stat"><span class="stat-num">18-24</span><span class="stat-lab">narration chunks per film</span></div>
+            <div class="stat"><span class="stat-num">2</span><span class="stat-lab">independent transcription systems</span></div>
+            <div class="stat"><span class="stat-num">5</span><span class="stat-lab">defects caught in the Greek film</span></div>
+          </div>
+          <figcaption>The narration check in numbers.</figcaption>
+        </figure>
+
+        <h2><span>Rights and licenses</span></h2>
+
+        <p><span>Archival material is used only with a clear license: CC BY, CC0 or public domain, each asset checked before use, and the credit goes in the film&#x27;s own end credits. The Greek film&#x27;s Antikythera fragment photo is credited as &quot;photo: Logg Tandy, CC BY 4.0&quot;. Generated material is covered by the terms of the tools that made it: the music is generated with Treblo AI, whose terms (</span><a class="url" href="https://treblo.com/tos">https://treblo.com/tos</a><span>, section 8) say you own the music you generate and may use it commercially, that outputs may not be unique, and that Treblo keeps a license to use outputs. Check the current terms yourself before relying on them.</span></p>
+
+        <h2><span>What it costs</span></h2>
+
+        <p><span>Not zero. Kaggle&#x27;s GPU time is free within a weekly quota (currently 30 hours, sometimes higher depending on demand:</span> <a class="url" href="https://www.kaggle.com/docs/efficient-gpu-usage">https://www.kaggle.com/docs/efficient-gpu-usage</a><span>). Chatterbox, Whisper and ffmpeg are open source, and Remotion is free for individuals. Scene and thumbnail images run on my existing paid Google AI Plus subscription. There is no other channel spend.</span></p>
+
+        <h2><span>Build it yourself</span></h2>
+
+        <p><span>The setup is reproducible with your own accounts: a free Kaggle account for GPU time, Chatterbox from its GitHub repo, a Google AI plan for image generation, a Remotion project for assembly, ffmpeg for rendering, and two transcription services for the narration check. The part that takes real work is not the tools. It is the source map, the fact-check document and the per-asset license checks.</span></p>
+
+        <figure>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><span><span class="step-t">Free Kaggle account</span><span class="step-d">GPU time within the weekly quota</span></span></div>
+            <div class="step"><span class="step-num">2</span><span><span class="step-t">Chatterbox from GitHub</span><span class="step-d">Open-source narration, MIT license</span></span></div>
+            <div class="step"><span class="step-num">3</span><span><span class="step-t">Google AI plan</span><span class="step-d">Still images for scenes and thumbnails</span></span></div>
+            <div class="step"><span class="step-num">4</span><span><span class="step-t">Remotion project plus ffmpeg</span><span class="step-d">Assembly in code and the final render</span></span></div>
+            <div class="step"><span class="step-num">5</span><span><span class="step-t">Two transcription services</span><span class="step-d">Whisper per chunk, Gemini on the full track</span></span></div>
+          </div>
+          <figcaption>The accounts and tools to assemble. The real work is the source map, the fact-check document and the license checks.</figcaption>
+        </figure>
+
+        <p><span>The films are at</span> <a class="url" href="https://www.youtube.com/@PastForwardDocs">https://www.youtube.com/@PastForwardDocs</a><span>.</span></p>
+
+        <a class="back" href="blog.html">Back to the blog</a>
+      </div>
+    </div></article>
+  </main>
+  <footer class="foot"><div class="wrap"><div class="foot-copy">© <span id="year"></span> Andreas Patinas</div><div class="foot-copy">Built for clarity, speed and useful outcomes.</div></div></div></footer>
+  <script>
+    const b=document.getElementById('lang'),nodes=[...document.querySelectorAll('[data-en]')];let lang=localStorage.getItem('portfolio-lang')||'en';function setLang(v){lang=v;document.documentElement.lang=v;nodes.forEach(n=>n.textContent=n.dataset[v]);b.textContent=v==='en'?'DA':'EN';localStorage.setItem('portfolio-lang',v)}b.addEventListener('click',()=>setLang(lang==='en'?'da':'en'));setLang(lang);document.getElementById('year').textContent=new Date().getFullYear();
+    const themeBtn=document.getElementById('theme'),themeLabel=document.getElementById('theme-label'),metaTheme=document.querySelector('meta[name="theme-color"]');
+    function applyTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem('portfolio-theme',t);themeLabel.textContent=t==='dark'?'Light':'Dark';if(metaTheme)metaTheme.content=t==='dark'?'#08111f':'#f5f5f2'}
+    themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+    applyTheme(document.documentElement.dataset.theme||'dark');
+    const navBar=document.querySelector('.nav'),menuBtn=document.getElementById('menubtn');
+    menuBtn.addEventListener('click',()=>{const o=navBar.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
+    document.querySelectorAll('.navmenu a').forEach(a=>a.addEventListener('click',()=>{navBar.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){navBar.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}});
+  </script>
+</body>
+</html>
